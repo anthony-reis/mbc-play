@@ -1,52 +1,70 @@
-const TMDB_BASE_URL = "https://api.themoviedb.org/3";
-const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p";
+const API_BASE_URL = "https://api.themoviedb.org/3";
+const IMAGE_BASE_URL = "https://image.tmdb.org";
 
-export const tmdbConfig = {
-  baseUrl: TMDB_BASE_URL,
-  imageBase: TMDB_IMAGE_BASE,
-  apiKey: process.env.NEXT_PUBLIC_TMDB_API_KEY || "",
-};
+export interface TMDBFetchOptions {
+  params?: Record<string, string | number | boolean>;
+  cache?: RequestCache;
+}
+
+function buildUrl(endpoint: string, params?: Record<string, any>): string {
+  const url = new URL(`${API_BASE_URL}${endpoint}`);
+
+  if (params) {
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        url.searchParams.append(key, String(value));
+      }
+    });
+  }
+
+  return url.toString();
+}
 
 export async function tmdbFetch<T>(
   endpoint: string,
-  options?: {
-    params?: Record<string, string | number>;
-    cache?: RequestCache;
-    revalidate?: number;
-  },
+  options?: TMDBFetchOptions,
 ): Promise<T> {
-  const {
-    params = {},
-    cache = "force-cache",
-    revalidate = 3600,
-  } = options || {};
+  const url = buildUrl(endpoint, options?.params);
 
-  const url = new URL(`${tmdbConfig.baseUrl}${endpoint}`);
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+    });
 
-  url.searchParams.append("api_key", tmdbConfig.apiKey || "");
+    if (!response.ok) {
+      throw new Error(`TMDB API error: ${response.status}`);
+    }
 
-  Object.entries(params).forEach(([key, value]) => {
-    url.searchParams.append(key, String(value));
-  });
-
-  const response = await fetch(url.toString(), {
-    next: { revalidate },
-    cache,
-  });
-
-  if (!response.ok) {
-    throw new Error(`TMDB API Error: ${response.statusText}`);
+    return response.json();
+  } catch (error) {
+    console.error("TMDB API Error:", error);
+    throw error;
   }
-
-  return response.json();
 }
 
-export const getImageUrl = {
-  poster: (
-    path: string,
-    size: "w185" | "w342" | "w500" | "original" = "w500",
-  ) => (path ? `${tmdbConfig.imageBase}/${size}${path}` : null),
+type PosterSize = "w185" | "w342" | "w500" | "original";
+type BackdropSize = "w780" | "w1280" | "original";
+type ProfileSize = "w185" | "h632" | "original";
 
-  backdrop: (path: string, size: "w780" | "w1280" | "original" = "original") =>
-    path ? `${tmdbConfig.imageBase}/${size}${path}` : null,
+export const getImageUrl = {
+  poster: (path: string | null, size: PosterSize = "w500"): string | null => {
+    if (!path) return null;
+    return `${IMAGE_BASE_URL}/t/p/${size}${path}`;
+  },
+
+  backdrop: (
+    path: string | null,
+    size: BackdropSize = "original",
+  ): string | null => {
+    if (!path) return null;
+    return `${IMAGE_BASE_URL}/t/p/${size}${path}`;
+  },
+
+  profile: (path: string | null, size: ProfileSize = "w185"): string | null => {
+    if (!path) return null;
+    return `${IMAGE_BASE_URL}/t/p/${size}${path}`;
+  },
 };
