@@ -113,6 +113,142 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+@layer utilities {
+  .w-65 {
+    width: 260px;
+  }
+
+  .pt-17 {
+    padding-top: 68px;
+  }
+
+  .pb-19 {
+    padding-bottom: 76px;
+  }
+
+  .ml-65 {
+    margin-left: 260px;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-height: 700px) {
+    .h-small\:pt-8 {
+      padding-top: 2rem;
+    }
+    .h-small\:pb-8 {
+      padding-bottom: 2rem;
+    }
+    .h-small\:pb-6 {
+      padding-bottom: 1.5rem;
+    }
+    .h-small\:gap-4 {
+      gap: 1rem;
+    }
+    .h-small\:gap-3 {
+      gap: 0.75rem;
+    }
+    .h-small\:gap-2 {
+      gap: 0.5rem;
+    }
+    .h-small\:text-sm {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+    .h-small\:text-xs {
+      font-size: 0.75rem;
+      line-height: 1rem;
+    }
+    .h-small\:mt-6 {
+      margin-top: 1.5rem;
+    }
+    .h-small\:mb-4 {
+      margin-bottom: 1rem;
+    }
+    .h-small\:px-8 {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .h-small\:pl-8 {
+      padding-left: 2rem;
+    }
+    .h-small\:h-6 {
+      height: 1.5rem;
+    }
+    .h-small\:w-5 {
+      width: 1.25rem;
+    }
+    .h-small\:h-5 {
+      height: 1.25rem;
+    }
+  }
+
+  @media (max-height: 600px) {
+    .h-xs\:pt-4 {
+      padding-top: 1rem;
+    }
+    .h-xs\:pb-4 {
+      padding-bottom: 1rem;
+    }
+    .h-xs\:pb-3 {
+      padding-bottom: 0.75rem;
+    }
+    .h-xs\:gap-3 {
+      gap: 0.75rem;
+    }
+    .h-xs\:gap-2 {
+      gap: 0.5rem;
+    }
+    .h-xs\:gap-1 {
+      gap: 0.25rem;
+    }
+    .h-xs\:text-xs {
+      font-size: 0.75rem;
+      line-height: 1rem;
+    }
+    .h-xs\:text-\[10px\] {
+      font-size: 10px;
+      line-height: 1rem;
+    }
+    .h-xs\:mt-3 {
+      margin-top: 0.75rem;
+    }
+    .h-xs\:mb-2 {
+      margin-bottom: 0.5rem;
+    }
+    .h-xs\:px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .h-xs\:px-8 {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .h-xs\:pl-6 {
+      padding-left: 1.5rem;
+    }
+    .h-xs\:h-5 {
+      height: 1.25rem;
+    }
+    .h-xs\:w-4 {
+      width: 1rem;
+    }
+    .h-xs\:h-4 {
+      height: 1rem;
+    }
+    .h-xs\:hidden {
+      display: none;
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
