@@ -27,7 +27,7 @@ const HeroCarouselComponent = ({ movies }: HeroCarouselProps) => {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full"
+      className="w-full pl-10"
       opts={{
         align: "start",
         loop: true,
