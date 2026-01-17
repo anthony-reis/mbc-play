@@ -1,5 +1,5 @@
 import { HeroCarouselSkeleton } from "@/app/(explorar)/_components/hero-carousel-skeleton";
-import { MediaSectionSkeleton } from "./media/media-section-skeleton";
+import { MediaSectionSkeleton } from "../shared/media/media-section-skeleton";
 
 interface PageSkeletonProps {
   withHero?: boolean;
