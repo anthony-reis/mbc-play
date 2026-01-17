@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { searchService } from "../services/search-service";
+import { searchKeys } from "../queries/keys";
 
 export function useSearch(searchQuery: string) {
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
@@ -16,10 +17,11 @@ export function useSearch(searchQuery: string) {
   }, [searchQuery]);
 
   const { data, isLoading } = useQuery({
-    queryKey: ["search", debouncedQuery],
+    queryKey: searchKeys.query(debouncedQuery),
     queryFn: () => searchService.searchAll(debouncedQuery),
     enabled: debouncedQuery.length >= 2,
     staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10,
   });
 
   return {
