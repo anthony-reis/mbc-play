@@ -12,13 +12,13 @@ import {
 
 const showDetailsService = {
   getDetails: (showId: string): Promise<TMDBShowDetails> =>
-    tmdbFetch(`/tv/${showId}`),
+    tmdbFetch(`/tv/${showId}?language=pt-BR`),
 
   getCredits: (showId: string): Promise<TMDBShowCredits> =>
-    tmdbFetch(`/tv/${showId}/credits`),
+    tmdbFetch(`/tv/${showId}/credits?language=pt-BR`),
 
   getVideos: (showId: string): Promise<TMDBResponse<TMDBVideo>> =>
-    tmdbFetch(`/tv/${showId}/videos`),
+    tmdbFetch(`/tv/${showId}/videos?language=pt-BR`),
 };
 
 export function useShowDetails(showId: string) {

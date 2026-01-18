@@ -1,4 +1,3 @@
-// app/movie/[id]/page.tsx
 "use client";
 
 import { use } from "react";
@@ -10,9 +9,9 @@ import {
   useMovieCredits,
   useMovieVideos,
 } from "@/lib/tmdb/hooks/use-movie-details";
-import { MovieHero } from "../_components/movie-hero";
-import { MovieInfo } from "../_components/movie-info";
-import { MovieCreditsSection } from "../_components/movie-credits";
+import { MediaInfo } from "@/components/shared/media/media-info";
+import { MediaCreditsSection } from "@/components/shared/media/media-credits";
+import { MediaHero } from "@/components/shared/media/media-hero";
 
 interface MoviePageProps {
   params: Promise<{ id: string }>;
@@ -33,7 +32,7 @@ export default function MoviePage({ params }: MoviePageProps) {
 
   if (loadingMovie) {
     return (
-      <div className="min-h-screen bg-[#191919] flex items-center justify-center">
+      <div className="min-h-screen bg-dark flex items-center justify-center">
         <div className="flex flex-col items-center gap-4 text-white">
           <Loader2 className="w-12 h-12 animate-spin" />
           <span className="text-xl">Carregando filme...</span>
@@ -46,18 +45,36 @@ export default function MoviePage({ params }: MoviePageProps) {
     notFound();
   }
 
-  return (
-    <div className="min-h-screen bg-[#191919] text-white pb-20">
-      <MovieHero movie={movie} trailerKey={trailer?.key} />
+  const releaseYear = new Date(movie.release_date).getFullYear();
+  const runtimeHours = Math.floor(movie.runtime / 60);
+  const runtimeMinutes = movie.runtime % 60;
 
-      <MovieInfo movie={movie} />
+  return (
+    <div className="min-h-screen bg-dark text-white pb-20">
+      <MediaHero
+        title={movie.title}
+        backdropPath={movie.backdrop_path}
+        trailerKey={trailer?.key}
+      />
+
+      <MediaInfo
+        title={movie.title}
+        releaseYear={releaseYear}
+        rating={movie.vote_average}
+        duration={`${runtimeHours}h ${runtimeMinutes}m`}
+        ageRating="13"
+        genres={movie.genres}
+        overview={movie.overview}
+      />
 
       {loadingCredits ? (
         <div className="px-6 md:px-10 py-12 text-center text-zinc-500">
           Carregando informações...
         </div>
       ) : (
-        credits && <MovieCreditsSection credits={credits} />
+        credits && (
+          <MediaCreditsSection cast={credits.cast} crew={credits.crew} />
+        )
       )}
     </div>
   );
