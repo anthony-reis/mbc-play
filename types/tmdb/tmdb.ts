@@ -20,7 +20,6 @@ export interface TMDBShow {
   genre_ids: number[];
 }
 
-// ✅ TORNAR GENÉRICO
 export interface TMDBResponse<T = TMDBMovie> {
   results: T[];
   page: number;
