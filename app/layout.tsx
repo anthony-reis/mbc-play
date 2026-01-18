@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/layout/sidebar/sidebar";
 import { Header } from "@/components/layout/header/header";
-import { QueryProvider } from "@/lib/react-query/provider";
+import { QueryProvider } from "@/providers/react-query-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,27 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning className={poppins.variable}>
       <head>
         <link rel="preconnect" href="https://api.themoviedb.org" />
         <link rel="preconnect" href="https://image.tmdb.org" />
         <link rel="dns-prefetch" href="https://api.themoviedb.org" />
         <link rel="dns-prefetch" href="https://image.tmdb.org" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
       </head>
-      <body
-        className={`${poppins.variable} font-sans bg-[#191919] text-white antialiased`}
-        suppressHydrationWarning
-      >
+      <body className="bg-dark text-white antialiased" suppressHydrationWarning>
         <QueryProvider>
           <Sidebar />
-          <main className="lg:ml-65 min-h-screen bg-[#191919]">
+          <main className="lg:ml-65 min-h-screen bg-dark">
             <Header />
             {children}
           </main>

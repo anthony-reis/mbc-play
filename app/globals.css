@@ -4,6 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-dark: #191919;
+  --color-dark-100: #2a2a2a;
+  --color-dark-200: #212121;
+  --color-dark-300: #1e1e1e;
+  --color-dark-400: #121212;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -11,6 +17,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -139,6 +146,38 @@
     display: none;
   }
 
+  .bg-dark {
+    background-color: var(--color-dark);
+  }
+
+  .bg-dark-100 {
+    background-color: var(--color-dark-100);
+  }
+
+  .bg-dark-200 {
+    background-color: var(--color-dark-200);
+  }
+
+  .bg-dark-300 {
+    background-color: var(--color-dark-300);
+  }
+
+  .bg-dark-400 {
+    background-color: var(--color-dark-400);
+  }
+
+  .bg-dark\/50 {
+    background-color: rgb(25 25 25 / 0.5);
+  }
+
+  .bg-dark\/80 {
+    background-color: rgb(25 25 25 / 0.8);
+  }
+
+  .bg-dark-400\/90 {
+    background-color: rgb(18 18 18 / 0.9);
+  }
+
   @media (max-height: 700px) {
     .h-small\:pt-8 {
       padding-top: 2rem;
@@ -253,7 +292,25 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  :root {
+    font-family:
+      var(--font-poppins),
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+  }
+
+  html {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-poppins), system-ui, sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
