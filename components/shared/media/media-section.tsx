@@ -14,7 +14,7 @@ const MediaSectionComponent = ({ title, items }: MediaSectionProps) => {
 
   return (
     <section className="space-y-4">
-      <h2 className="text-xl md:text-2xl font-bold text-white">{title}</h2>
+      <h2 className="text-xl md:text-2xl font-semibold text-white">{title}</h2>
 
       <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
         {items.map((item) => (

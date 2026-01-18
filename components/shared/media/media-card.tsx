@@ -1,4 +1,3 @@
-// components/shared/media/media-card.tsx
 "use client";
 
 import { useState, memo } from "react";

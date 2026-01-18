@@ -1,12 +1,10 @@
 "use client";
 
-import * as React from "react";
+import { memo } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { MediaCard } from "./media-card";
 import { MediaItem } from "@/types/media/media";
@@ -15,35 +13,39 @@ interface MediaCarouselProps {
   items: MediaItem[];
 }
 
-export function MediaCarousel({ items }: MediaCarouselProps) {
+const MediaCarouselComponent = ({ items }: MediaCarouselProps) => {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="relative">
-      {" "}
-      <Carousel
-        opts={{
-          align: "start",
-          slidesToScroll: 3,
-        }}
-        className="w-full"
-      >
-        <CarouselContent className="-ml-4">
-          {items.map((item) => (
-            <CarouselItem
-              key={`${item.mediaType}-${item.id}`}
-              className="pl-4 basis-auto"
-            >
-              <MediaCard item={item} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-
-        <div className="opacity-0 hover:opacity-100 transition-opacity duration-300">
-          <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 border-white/10" />
-          <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 border-white/10" />
-        </div>
-      </Carousel>
-    </div>
+    <Carousel
+      className="w-full pl-10"
+      opts={{
+        align: "start",
+        loop: true,
+      }}
+    >
+      <CarouselContent className="-ml-3 md:-ml-6 lg:-ml-[54px]">
+        {items.map((item) => (
+          <CarouselItem
+            key={`${item.mediaType}-${item.id}`}
+            className="pl-3 md:pl-6 lg:pl-[54px] basis-[180px] md:basis-[220px]"
+          >
+            <MediaCard item={item} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
   );
-}
+};
+
+MediaCarouselComponent.displayName = "MediaCarousel";
+
+export const MediaCarousel = memo(
+  MediaCarouselComponent,
+  (prevProps, nextProps) => {
+    return (
+      prevProps.items.length === nextProps.items.length &&
+      prevProps.items[0]?.id === nextProps.items[0]?.id
+    );
+  },
+);
