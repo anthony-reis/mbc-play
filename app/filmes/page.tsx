@@ -70,10 +70,6 @@ export default function FilmesPage() {
   return (
     <div className="min-h-screen bg-dark text-white pb-20">
       <div className="px-6 md:px-10 pt-6 space-y-12">
-        <h1 className="text-3xl md:text-4xl font-black text-white mb-8">
-          Filmes
-        </h1>
-
         {trending && (
           <MediaSection title="Em alta" items={moviesToMedia(trending)} />
         )}

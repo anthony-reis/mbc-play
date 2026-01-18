@@ -48,7 +48,7 @@ export function MediaHero({ title, backdropPath, trailerKey }: MediaHeroProps) {
             </button>
 
             <h1 className="text-2xl font-medium text-white drop-shadow-lg ">
-              Assistir Trailer
+              Assistir trailer
             </h1>
           </div>
         )}

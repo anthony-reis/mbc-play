@@ -47,7 +47,7 @@ const MediaCardComponent = ({ item }: MediaCardProps) => {
             />
           )}
 
-          <div className="absolute top-0 right-0 flex items-center gap-1 bg-black/60 backdrop-blur-md border border-white/10 px-2 py-1 rounded-md shadow-sm z-10">
+          <div className="absolute top-0 right-0 flex items-center gap-1 bg-white/20 backdrop-blur-md border border-white/10 px-2 py-1 rounded-md shadow-sm z-10">
             <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
             <span className="text-xs font-bold text-white">
               {item.vote_average.toFixed(1)}

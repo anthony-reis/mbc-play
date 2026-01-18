@@ -136,10 +136,6 @@ export default function GenrePage({ params }: GenrePageProps) {
   return (
     <div className="min-h-screen bg-dark text-white pb-20">
       <div className="px-6 md:px-10 pt-6 space-y-12">
-        <h1 className="text-3xl md:text-4xl font-black text-white mb-8">
-          {genreDisplayName}
-        </h1>
-
         {movies.length > 0 && (
           <MediaSection title="Filmes" items={moviesToMedia(movies)} />
         )}
