@@ -35,7 +35,7 @@ export function VideoPlayerModal({
 
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   const handleClose = () => {
     setIsAnimating(false);
@@ -62,13 +62,14 @@ export function VideoPlayerModal({
       </button>
 
       <div
-        className={`w-full lg:py-6 lg:pl-8 py-0 pl-0 max-w-6xl aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-all duration-300 ${
+        className={`w-full max-w-6xl aspect-video rounded-xl overflow-hidden shadow-2xl transform transition-all duration-300 ${
           isAnimating ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         <iframe
-          src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3`}
+          key={videoKey}
+          src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&enablejsapi=1`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -78,7 +79,7 @@ export function VideoPlayerModal({
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
         <p className="text-white/60 text-sm">
-          Clique fora do vídeo ou pressione ESC para fechar
+          Pressione ESC ou clique fora para fechar
         </p>
       </div>
     </div>
