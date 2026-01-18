@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import { PageSkeleton } from "@/components/layout/page-skeleton";

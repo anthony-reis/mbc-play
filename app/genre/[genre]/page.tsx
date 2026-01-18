@@ -42,7 +42,7 @@ export default function GenrePage({ params }: GenrePageProps) {
 
   if (searchLoading && isSearching) {
     return (
-      <div className="min-h-screen bg-[#191919] text-white pb-20">
+      <div className="min-h-screen bg-dark text-white pb-20">
         <div className="px-6 md:px-10 pt-6 space-y-8">
           <div className="flex items-center gap-3">
             <Search className="w-6 h-6 text-zinc-500 animate-pulse" />
@@ -60,7 +60,7 @@ export default function GenrePage({ params }: GenrePageProps) {
     const hasResults = searchMovies.length > 0 || searchShows.length > 0;
 
     return (
-      <div className="min-h-screen bg-[#191919] text-white pb-20">
+      <div className="min-h-screen bg-dark text-white pb-20">
         <div className="px-6 md:px-10 pt-6 space-y-12">
           <div className="space-y-2">
             <h1 className="text-2xl md:text-3xl font-bold">
@@ -134,7 +134,7 @@ export default function GenrePage({ params }: GenrePageProps) {
   const shows = data?.shows || [];
 
   return (
-    <div className="min-h-screen bg-[#191919] text-white pb-20">
+    <div className="min-h-screen bg-dark text-white pb-20">
       <div className="px-6 md:px-10 pt-6 space-y-12">
         <h1 className="text-3xl md:text-4xl font-black text-white mb-8">
           {genreDisplayName}

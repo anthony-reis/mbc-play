@@ -37,7 +37,6 @@ export function EmptyState({ query, type }: EmptyStateProps) {
   const isMovie = type === "movie";
   const Icon = isMovie ? Film : Tv;
   const contentType = isMovie ? "filme" : "série";
-  const contentTypePlural = isMovie ? "filmes" : "séries";
   const alternativeType = isMovie ? "série" : "filme";
   const alternativeTypePlural = isMovie ? "séries" : "filmes";
   const alternativeLink = isMovie ? "/series" : "/filmes";

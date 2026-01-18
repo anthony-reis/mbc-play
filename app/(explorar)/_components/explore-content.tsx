@@ -27,7 +27,7 @@ const ExploreContentComponent = ({
   loadingTopRated,
 }: ExploreContentProps) => {
   return (
-    <div className="min-h-screen bg-[#191919] text-white pb-20">
+    <div className="min-h-screen bg-dark text-white pb-20">
       <ExploreHero movies={trendingMovies} />
 
       <ExploreSections

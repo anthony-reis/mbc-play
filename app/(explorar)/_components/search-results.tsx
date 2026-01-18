@@ -13,7 +13,7 @@ export function SearchResults({ query, movies, shows }: SearchResultsProps) {
   const hasResults = movies.length > 0 || shows.length > 0;
 
   return (
-    <div className="min-h-screen bg-[#191919] text-white pb-20">
+    <div className="min-h-screen bg-dark text-white pb-20">
       <div className="px-6 md:px-10 pt-6 space-y-12">
         <h1 className="text-2xl md:text-3xl font-bold">
           Resultados para "{query}"

@@ -7,7 +7,7 @@ interface SearchLoadingStateProps {
 
 export function SearchLoadingState({ query }: SearchLoadingStateProps) {
   return (
-    <div className="min-h-screen bg-[#191919] text-white pb-20">
+    <div className="min-h-screen bg-dark text-white pb-20">
       <div className="px-6 md:px-10 pt-6 space-y-8">
         <div className="flex items-center gap-3">
           <Search className="w-6 h-6 text-zinc-500 animate-pulse" />

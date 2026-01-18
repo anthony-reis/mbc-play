@@ -1,37 +1,32 @@
 "use client";
 
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/shared/logo";
 import { NavItem } from "./nav-item";
 import { CategoryList } from "./category-list";
-import { SidebarToggle } from "./sidebar-toggle";
 import { MENU_ITEMS } from "@/constants/navigation";
+import { useSidebarStore } from "@/lib/stores/sidebar-store";
 
 export function Sidebar() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, close } = useSidebarStore();
 
   const isItemActive = (href: string) => {
     return href === "/" ? pathname === "/" : pathname.startsWith(href);
   };
 
-  const closeSidebar = () => setIsOpen(false);
-
   return (
     <>
-      <SidebarToggle isOpen={isOpen} onToggle={() => setIsOpen(!isOpen)} />
-
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/60 z-30 lg:hidden"
-          onClick={closeSidebar}
+          onClick={close}
         />
       )}
 
       <aside
         className={`
-          fixed left-0 top-0 z-40 h-screen w-65 flex flex-col bg-[#212121]
+          fixed left-0 top-0 z-40 h-screen w-65 flex flex-col bg-dark-200
           pb-10 h-small:pb-6 h-xs:pb-3
           transition-transform duration-300 ease-in-out
           lg:translate-x-0
@@ -50,12 +45,12 @@ export function Sidebar() {
               label={item.label}
               href={item.href}
               isActive={isItemActive(item.href)}
-              onClick={closeSidebar}
+              onClick={close}
             />
           ))}
         </nav>
 
-        <CategoryList onCategoryClick={closeSidebar} />
+        <CategoryList onCategoryClick={close} />
       </aside>
     </>
   );

@@ -11,7 +11,7 @@ export function PageSkeleton({
   sections = 3,
 }: PageSkeletonProps) {
   return (
-    <div className="min-h-screen bg-[#191919] text-white pb-20">
+    <div className="min-h-screen bg-dark text-white pb-20">
       {withHero && (
         <div className="mb-12">
           <HeroCarouselSkeleton />
