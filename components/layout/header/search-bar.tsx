@@ -19,7 +19,7 @@ export function SearchBar() {
   };
 
   return (
-    <div className="relative w-2/3 lg:w-full max-w-[889px]">
+    <div className="relative w-full max-w-[889px]">
       <div className="relative flex items-center">
         <button
           type="button"

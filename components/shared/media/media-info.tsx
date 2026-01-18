@@ -13,11 +13,11 @@ export function MediaInfo({
   overview,
 }: MediaInfoProps) {
   return (
-    <div className="px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 -mt-20 sm:-mt-24  relative z-10">
+    <div className="px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 -mt-13 sm:-mt-24  relative z-10">
       <div className="mb-6 sm:mb-8 md:mb-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 md:gap-6">
-            <h1 className="text-2xl font-semibold tracking-tight text-white whitespace-nowrap">
+            <h1 className="sm:text-2xl text-base font-semibold tracking-tight text-white whitespace-nowrap">
               {title}
             </h1>
 
