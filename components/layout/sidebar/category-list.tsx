@@ -17,7 +17,7 @@ export function CategoryList({ onCategoryClick }: CategoryListProps) {
         Categorias
       </h3>
 
-      <ul className="flex flex-col gap-3.5 h-small:gap-2 h-xs:gap-1 pb-4">
+      <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-2.5 lg:gap-3.5 h-small:gap-x-3 h-small:gap-y-2 h-xs:gap-x-2 h-xs:gap-y-1.5 pb-4">
         {CATEGORIES.map((category) => {
           const categoryHref = `/genre/${category.toLowerCase()}`;
           const isActive = pathname.startsWith(categoryHref);
@@ -30,8 +30,8 @@ export function CategoryList({ onCategoryClick }: CategoryListProps) {
                 href={categoryHref}
                 onClick={onCategoryClick}
                 prefetch={false}
-                className={`text-[15px] h-small:text-sm h-xs:text-xs font-bold transition-colors duration-200 block ${
-                  isActive ? "text-white" : "text-zinc-600 hover:text-white"
+                className={`text-[15px] h-small:text-sm h-xs:text-xs font-bold transition-colors duration-200 block truncate ${
+                  isActive ? "text-white" : "text-zinc-500 hover:text-white"
                 }`}
               >
                 {displayName}

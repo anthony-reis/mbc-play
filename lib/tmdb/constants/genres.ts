@@ -82,7 +82,7 @@ export const CATEGORIES = [
   "Cartoon",
   "War",
   "Sport",
-  "Sci-Fi",
+  "Romance",
 ] as const;
 
 export type CategoryType = (typeof CATEGORIES)[number];
