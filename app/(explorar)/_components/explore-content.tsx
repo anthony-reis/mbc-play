@@ -1,7 +1,8 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { ExploreHero } from "./explore-hero";
 import { ExploreSections } from "./explore-sections";
 import { TMDBMovie, TMDBShow } from "@/types/tmdb/tmdb";
+import { shuffleArray } from "@/lib/tmdb/utils/shuffle-array";
 
 interface ExploreContentProps {
   trendingMovies: TMDBMovie[];
@@ -26,9 +27,17 @@ const ExploreContentComponent = ({
   loadingPopular,
   loadingTopRated,
 }: ExploreContentProps) => {
+  const exploreHeroMovies = useMemo(() => {
+    const combined = [...trendingMovies, ...(upcomingMovies || [])];
+    const uniqueMovies = Array.from(
+      new Map(combined.map((movie) => [movie.id, movie])).values(),
+    );
+    return shuffleArray(uniqueMovies);
+  }, [trendingMovies, upcomingMovies]);
+
   return (
     <div className="min-h-screen bg-dark text-white pb-20">
-      <ExploreHero movies={trendingMovies} />
+      <ExploreHero movies={exploreHeroMovies} />
 
       <ExploreSections
         trendingMovies={trendingMovies}
