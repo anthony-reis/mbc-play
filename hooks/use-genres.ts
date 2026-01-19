@@ -2,11 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { genreService } from "../services/genre-service";
-import { genreKeys } from "../queries/keys";
+import { genreKeys } from "@/lib/tmdb/queries/keys";
 
-/**
- * Hook para buscar filmes por gênero
- */
 export function useMoviesByGenre(genreName: string) {
   return useQuery({
     queryKey: genreKeys.movies(genreName),
@@ -15,9 +12,6 @@ export function useMoviesByGenre(genreName: string) {
   });
 }
 
-/**
- * Hook para buscar séries por gênero
- */
 export function useShowsByGenre(genreName: string) {
   return useQuery({
     queryKey: genreKeys.shows(genreName),

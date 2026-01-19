@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { searchService } from "../services/search-service";
-import { searchKeys } from "../queries/keys";
+import { searchKeys } from "@/lib/tmdb/queries/keys";
 
 export function useSearch(searchQuery: string) {
   const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);

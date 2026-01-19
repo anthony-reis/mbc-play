@@ -1,5 +1,5 @@
 import { TMDBMovie, TMDBResponse, TMDBShow } from "@/types/tmdb/tmdb";
-import { tmdbFetch } from "../client";
+import { tmdbFetch } from "@/lib/tmdb/client";
 
 export const searchService = {
   searchMovies: async (query: string): Promise<TMDBMovie[]> => {

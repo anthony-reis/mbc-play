@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { showService } from "../services/show-service";
-import { showKeys } from "../queries/keys";
+import { showKeys } from "@/lib/tmdb/queries/keys";
 
 export function useTrendingShows() {
   return useQuery({

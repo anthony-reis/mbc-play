@@ -1,14 +1,15 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { showKeys } from "../queries/keys";
 import { TMDBResponse } from "@/types/tmdb/tmdb";
-import { tmdbFetch } from "../client";
+
 import {
   TMDBShowDetails,
   TMDBShowCredits,
   TMDBVideo,
 } from "@/types/tmdb/show-details";
+import { tmdbFetch } from "@/lib/tmdb/client";
+import { showKeys } from "@/lib/tmdb/queries/keys";
 
 const showDetailsService = {
   getDetails: (showId: string): Promise<TMDBShowDetails> =>

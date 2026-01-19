@@ -1,5 +1,5 @@
+import { tmdbFetch } from "@/lib/tmdb/client";
 import { TMDBMovie, TMDBResponse } from "@/types/tmdb/tmdb";
-import { tmdbFetch } from "../client";
 
 export const movieService = {
   getTrending: async (): Promise<TMDBMovie[]> => {

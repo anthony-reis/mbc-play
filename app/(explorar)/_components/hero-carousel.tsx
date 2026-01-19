@@ -14,7 +14,7 @@ import {
 import { TMDBMovie } from "@/types/tmdb/tmdb";
 import { getImageUrl } from "@/lib/tmdb/client";
 import { VideoPlayerModal } from "@/components/shared/video-player-modal";
-import { useMovieVideos } from "@/lib/tmdb/hooks/use-movie-details";
+import { useMovieVideos } from "@/hooks/use-movie-details";
 
 interface HeroCarouselProps {
   movies: TMDBMovie[];

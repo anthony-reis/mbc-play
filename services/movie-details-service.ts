@@ -1,9 +1,9 @@
+import { tmdbFetch } from "@/lib/tmdb/client";
 import {
   MovieCredits,
   MovieDetails,
   MovieVideos,
 } from "@/types/tmdb/movie-details";
-import { tmdbFetch } from "../client";
 
 export const movieDetailsService = {
   getDetails: async (movieId: string): Promise<MovieDetails> => {

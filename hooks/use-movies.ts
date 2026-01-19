@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { movieKeys } from "../queries/keys";
+import { movieKeys } from "../lib/tmdb/queries/keys";
 import { movieService } from "../services/movie-service";
 
 export function useTrendingMovies() {

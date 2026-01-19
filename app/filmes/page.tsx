@@ -9,8 +9,8 @@ import {
   useTrendingMovies,
   useUpcomingMovies,
   useTopRatedMovies,
-} from "@/lib/tmdb/hooks/use-movies";
-import { useSearch } from "@/lib/tmdb/hooks/use-search";
+} from "@/hooks/use-movies";
+import { useSearch } from "@/hooks/use-search";
 import { useSearchStore } from "@/lib/stores/search-store";
 import { moviesToMedia } from "@/lib/tmdb/utils/media-adapter";
 import { EmptyState } from "@/components/layout/empty-state";

@@ -8,7 +8,7 @@ import {
   useMovieDetails,
   useMovieCredits,
   useMovieVideos,
-} from "@/lib/tmdb/hooks/use-movie-details";
+} from "@/hooks/use-movie-details";
 import { MediaInfo } from "@/components/shared/media/media-info";
 import { MediaCreditsSection } from "@/components/shared/media/media-credits";
 import { MediaHero } from "@/components/shared/media/media-hero";

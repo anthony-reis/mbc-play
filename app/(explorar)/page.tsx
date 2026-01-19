@@ -5,9 +5,9 @@ import {
   useTrendingMovies,
   useUpcomingMovies,
   useTopRatedMovies,
-} from "@/lib/tmdb/hooks/use-movies";
-import { useTrendingShows, usePopularShows } from "@/lib/tmdb/hooks/use-shows";
-import { useSearch } from "@/lib/tmdb/hooks/use-search";
+} from "@/hooks/use-movies";
+import { useTrendingShows, usePopularShows } from "@/hooks/use-shows";
+import { useSearch } from "@/hooks/use-search";
 import { useSearchStore } from "@/lib/stores/search-store";
 import {
   SearchLoadingState,

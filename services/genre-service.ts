@@ -1,6 +1,6 @@
 import { TMDBMovie, TMDBResponse, TMDBShow } from "@/types/tmdb/tmdb";
-import { tmdbFetch } from "../client";
-import { getMovieGenreId, getTvGenreId } from "../constants/genres";
+import { tmdbFetch } from "@/lib/tmdb/client";
+import { getMovieGenreId, getTvGenreId } from "@/lib/tmdb/constants/genres";
 
 export const genreService = {
   getMoviesByGenreName: async (genreName: string): Promise<TMDBMovie[]> => {

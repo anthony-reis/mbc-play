@@ -1,5 +1,5 @@
 import { TMDBResponse, TMDBShow } from "@/types/tmdb/tmdb";
-import { tmdbFetch } from "../client";
+import { tmdbFetch } from "@/lib/tmdb/client";
 
 export const showService = {
   getTrending: async (): Promise<TMDBShow[]> => {

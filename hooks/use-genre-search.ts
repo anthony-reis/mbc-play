@@ -2,7 +2,8 @@
 
 import { useMemo } from "react";
 import { useSearch } from "./use-search";
-import { getMovieGenreId, getTvGenreId } from "../constants/genres";
+import { getMovieGenreId, getTvGenreId } from "@/lib/tmdb/constants/genres";
+
 
 export function useGenreSearch(searchQuery: string, genreName: string) {
   const { movies, shows, isLoading, isSearching } = useSearch(searchQuery);
