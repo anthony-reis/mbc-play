@@ -1,6 +1,6 @@
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { movieKeys } from "./keys";
-import { movieService } from "../services/movie-service";
+import { movieService } from "@/services/movie-service";
 
 export async function prefetchHomeData() {
   const queryClient = new QueryClient();
