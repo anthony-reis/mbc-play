@@ -1,6 +1,7 @@
 "use client";
 
 import { memo } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { MediaCard } from "./media-card";
 import { MediaItem } from "@/types/media/media";
 
@@ -10,16 +11,28 @@ interface MediaSectionProps {
 }
 
 const MediaSectionComponent = ({ title, items }: MediaSectionProps) => {
+  const [emblaRef] = useEmblaCarousel({
+    align: "start",
+    dragFree: true,
+    containScroll: "trimSnaps",
+  });
+
   if (!items || items.length === 0) return null;
 
   return (
     <section className="space-y-4">
-      <h2 className="text-xl md:text-2xl font-semibold text-white">{title}</h2>
+      {title && (
+        <h2 className="text-xl md:text-2xl font-semibold text-white">
+          {title}
+        </h2>
+      )}
 
-      <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
-        {items.map((item) => (
-          <MediaCard key={item.id} item={item} />
-        ))}
+      <div ref={emblaRef} className="overflow-hidden pb-4">
+        <div className="flex gap-4">
+          {items.map((item) => (
+            <MediaCard key={item.id} item={item} />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -61,30 +61,30 @@ function CarouselMovieItem({
       </div>
 
       <div className="relative h-full flex flex-col justify-end p-4 sm:p-6 md:p-4 lg:p-8 items-end w-[98%] z-10">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-widest mb-2 md:mb-3 drop-shadow-2xl leading-none text-white">
-          {movie.title}
-        </h1>
-
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 md:gap-3 w-full sm:w-auto">
+        <div className="flex flex-row items-center gap-2 md:gap-3 w-auto">
           <button
             onClick={() => trailer && onPlayTrailer(trailer.key, movie.title)}
             disabled={!trailer}
-            className="flex items-center justify-center gap-1.5 md:gap-2 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-4 py-2.5 md:px-6 md:py-2.5 lg:px-7 lg:py-3 rounded-lg md:rounded-xl font-bold tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="flex items-center justify-center gap-1.5 md:gap-2 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-3 py-2.5 md:px-6 md:py-2.5 lg:px-7 lg:py-3 rounded-lg md:rounded-xl font-bold tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            aria-label={trailer ? "Assistir trailer" : "Trailer não disponível"}
           >
-            <div className="bg-white rounded-full p-0.5 md:p-1">
-              <Play className="w-2.5 h-2.5 md:w-3 md:h-3 text-black fill-black" />
+            <div className="bg-white rounded-full p-1">
+              <Play className="w-3 h-3 md:w-3 md:h-3 text-black fill-black" />
             </div>
-            <span className="text-sm md:text-sm lg:text-base">
-              {trailer ? "Assistir" : "Trailer não encontrado"}
+            <span className="hidden md:inline text-sm lg:text-base">
+              {trailer ? "Assistir" : "Indisponível"}
             </span>
           </button>
 
           <Link
             href={`/filmes/${movie.id}`}
-            className="flex items-center justify-center gap-1.5 md:gap-2 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-4 py-2.5 md:px-6 md:py-2.5 lg:px-7 lg:py-3 rounded-lg md:rounded-xl font-bold transition-all duration-300 hover:scale-105 active:scale-95 border border-transparent hover:border-white/10"
+            className="flex items-center justify-center gap-1.5 md:gap-2 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-3 py-2.5 md:px-6 md:py-2.5 lg:px-7 lg:py-3 rounded-lg md:rounded-xl font-bold transition-all duration-300 hover:scale-105 active:scale-95"
+            aria-label="Ver detalhes do filme"
           >
             <InfoIcon className="w-4 h-4 md:w-4 md:h-4 lg:w-5 lg:h-5" />
-            <span className="text-sm md:text-sm lg:text-base">Detalhes</span>
+            <span className="hidden md:inline text-sm lg:text-base">
+              Detalhes
+            </span>
           </Link>
         </div>
       </div>
