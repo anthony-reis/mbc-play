@@ -28,7 +28,7 @@ const ExploreSectionsComponent = ({
   loadingTopRated,
 }: ExploreSectionsProps) => {
   return (
-    <div className="px-6 md:px-10 space-y-12">
+    <div className="pl-6 md:pl-10 space-y-12">
       <MediaSection title="Em alta" items={moviesToMedia(trendingMovies)} />
 
       {loadingTrendingShows ? (

@@ -43,7 +43,7 @@ export default function GenrePage({ params }: GenrePageProps) {
   if (searchLoading && isSearching) {
     return (
       <div className="min-h-screen bg-dark text-white pb-20">
-        <div className="px-6 md:px-10 pt-6 space-y-8">
+        <div className="pl-6 md:pl-10 pt-6 space-y-8">
           <div className="flex items-center gap-3">
             <Search className="w-6 h-6 text-zinc-500 animate-pulse" />
             <h1 className="text-2xl md:text-3xl font-bold">
@@ -61,7 +61,7 @@ export default function GenrePage({ params }: GenrePageProps) {
 
     return (
       <div className="min-h-screen bg-dark text-white pb-20">
-        <div className="px-6 md:px-10 pt-6 space-y-12">
+        <div className="pl-6 md:pl-10 pt-6 space-y-12">
           <div className="space-y-2">
             <h1 className="text-2xl md:text-3xl font-bold">
               Resultados para "{query}"
@@ -135,7 +135,7 @@ export default function GenrePage({ params }: GenrePageProps) {
 
   return (
     <div className="min-h-screen bg-dark text-white pb-20">
-      <div className="px-6 md:px-10 pt-6 space-y-12">
+      <div className="pl-6 md:pl-10 pt-6 space-y-12">
         {movies.length > 0 && (
           <MediaSection title="Filmes" items={moviesToMedia(movies)} />
         )}

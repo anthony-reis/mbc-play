@@ -71,7 +71,7 @@ export default function SeriesPage() {
 
   return (
     <div className="min-h-screen bg-dark text-white pb-20">
-      <div className="px-6 md:px-10 pt-6 space-y-12">
+      <div className="pl-6 md:pl-10 pt-6 space-y-12">
         {trending && (
           <MediaSection title="Em alta" items={showsToMedia(trending)} />
         )}
