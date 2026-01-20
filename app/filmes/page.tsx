@@ -14,6 +14,7 @@ import { useSearch } from "@/hooks/use-search";
 import { useSearchStore } from "@/lib/stores/search-store";
 import { moviesToMedia } from "@/lib/tmdb/utils/media-adapter";
 import { EmptyState } from "@/components/layout/empty-state";
+import { ErrorState } from "@/components/shared/error-state";
 
 export default function FilmesPage() {
   const query = useSearchStore((state) => state.query);
@@ -65,6 +66,10 @@ export default function FilmesPage() {
 
   if (loadingTrending) {
     return <PageSkeleton sections={3} />;
+  }
+
+  if (!trending) {
+    return <ErrorState message="Nenhum conteúdo disponível no momento." />;
   }
 
   return (

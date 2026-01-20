@@ -1,6 +1,7 @@
 "use client";
 
 import { PageSkeleton } from "@/components/layout/page-skeleton";
+import { ErrorState } from "@/components/shared/error-state";
 import {
   useTrendingMovies,
   useUpcomingMovies,
@@ -18,8 +19,13 @@ import {
 export default function ExplorePage() {
   const query = useSearchStore((state) => state.query);
 
-  const { data: trendingMovies, isLoading: loadingTrending } =
-    useTrendingMovies();
+  const {
+    data: trendingMovies,
+    isLoading: loadingTrending,
+    error: trendingError,
+    refetch: refetchTrending,
+  } = useTrendingMovies();
+
   const { data: upcomingMovies, isLoading: loadingUpcoming } =
     useUpcomingMovies();
   const { data: topRatedMovies, isLoading: loadingTopRated } =
@@ -35,22 +41,42 @@ export default function ExplorePage() {
     isSearching,
   } = useSearch(query);
 
+  // Estado de loading da busca
   if (searchLoading && isSearching) {
     return <SearchLoadingState query={query} />;
   }
 
+  // Resultados da busca
   if (isSearching) {
     return (
       <SearchResults query={query} movies={searchMovies} shows={searchShows} />
     );
   }
 
+  // Estado de loading inicial
   if (loadingTrending) {
     return <PageSkeleton withHero sections={5} />;
   }
 
+  // Estado de erro
+  if (trendingError) {
+    return (
+      <ErrorState
+        title="Não conseguimos carregar os filmes"
+        message="Tivemos um problema ao buscar o conteúdo. Por favor, verifique sua conexão e tente novamente."
+        onRetry={() => refetchTrending()}
+        showHomeButton
+      />
+    );
+  }
+
   if (!trendingMovies) {
-    return null;
+    return (
+      <ErrorState
+        message="Nenhum conteúdo disponível no momento."
+        onRetry={() => refetchTrending()}
+      />
+    );
   }
 
   return (
