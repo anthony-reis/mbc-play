@@ -22,46 +22,48 @@ export function MediaHero({ title, backdropPath, trailerKey }: MediaHeroProps) {
 
   return (
     <>
-      <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden bg-dark-400">
-        {backdropUrl && (
-          <div className="absolute inset-0">
-            {!imageLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-br from-dark-300 via-dark-400 to-dark-400 animate-pulse flex items-center justify-center">
-                <Loader2 className="w-12 h-12 text-white/20 animate-spin" />
-              </div>
-            )}
+      <div className="px-6 md:px-10">
+        <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden rounded-2xl bg-dark-400">
+          {backdropUrl && (
+            <div className="absolute inset-0">
+              {!imageLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-br from-dark-300 via-dark-400 to-dark-400 animate-pulse flex items-center justify-center">
+                  <Loader2 className="w-12 h-12 text-white/20 animate-spin" />
+                </div>
+              )}
 
-            <Image
-              src={backdropUrl}
-              alt={title}
-              fill
-              className={`object-cover object-[center_15%] transition-opacity duration-700 ${
-                imageLoaded ? "opacity-100" : "opacity-0"
-              }`}
-              priority
-              onLoad={() => setImageLoaded(true)}
-            />
+              <Image
+                src={backdropUrl}
+                alt={title}
+                fill
+                className={`object-cover object-[center_15%] transition-opacity duration-700 ${
+                  imageLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                priority
+                onLoad={() => setImageLoaded(true)}
+              />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-dark via-transparent to-transparent" />
-          </div>
-        )}
+              <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-dark via-transparent to-transparent" />
+            </div>
+          )}
 
-        {trailerKey && imageLoaded && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-            <button
-              onClick={() => setShowTrailer(true)}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full bg-white/10 backdrop-blur-md border-2 md:border-3 border-white/30 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 z-10 group"
-              aria-label="Play trailer"
-            >
-              <Play className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 text-white fill-white ml-1 sm:ml-1.5 md:ml-2 group-hover:scale-110 transition-transform" />
-            </button>
+          {trailerKey && imageLoaded && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+              <button
+                onClick={() => setShowTrailer(true)}
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full bg-white/10 backdrop-blur-md border-2 md:border-3 border-white/30 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 z-10 group"
+                aria-label="Play trailer"
+              >
+                <Play className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 text-white fill-white ml-1 sm:ml-1.5 md:ml-2 group-hover:scale-110 transition-transform" />
+              </button>
 
-            <h1 className="text-base sm:text-2xl font-medium text-white drop-shadow-lg">
-              Assistir trailer
-            </h1>
-          </div>
-        )}
+              <h1 className="text-base sm:text-2xl font-medium text-white drop-shadow-lg">
+                Assistir trailer
+              </h1>
+            </div>
+          )}
+        </div>
       </div>
 
       {trailerKey && (
