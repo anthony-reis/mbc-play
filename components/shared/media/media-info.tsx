@@ -13,9 +13,9 @@ export function MediaInfo({
   overview,
 }: MediaInfoProps) {
   return (
-    <div className="px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 -mt-13 sm:-mt-24  relative z-10">
+    <div className="pl-4 sm:pl-6 md:pl-10 lg:pl-16 xl:pl-20 -mt-13 sm:-mt-24 relative z-10 md:w-[70%]">
       <div className="mb-6 sm:mb-8 md:mb-10">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6">
+        <div className="flex flex-col 2xl:flex-row 2xl:items-center 2xl:justify-between gap-4 2xl:gap-6">
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 md:gap-6">
             <h1 className="sm:text-2xl text-base font-semibold tracking-tight text-white whitespace-nowrap">
               {title}
@@ -41,7 +41,7 @@ export function MediaInfo({
               </span>
             ))}
 
-            <div className="flex items-center gap-1.5 sm:gap-2  rounded-full px-3 sm:px-4 py-1.5 whitespace-nowrap">
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 whitespace-nowrap">
               <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-yellow-400" />
               <span className="text-base font-bold text-white">
                 {rating.toFixed(1)}

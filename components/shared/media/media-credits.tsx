@@ -19,7 +19,7 @@ export function MediaCreditsSection({
   const mainCast = cast.slice(0, 10);
 
   return (
-    <div className="px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-4 sm:py-6 md:py-8 space-y-5 sm:space-y-6 md:space-y-7 border-t border-zinc-600">
+    <div className="pl-4 sm:pl-6 md:pl-10 lg:pl-16 xl:pl-20 py-4 sm:py-6 md:py-8 space-y-5 sm:space-y-6 md:space-y-7 border-t border-zinc-600 md:w-[70%]">
       {director && (
         <div>
           <h3 className="text-white text-base sm:text-lg md:text-xl font-bold mb-1.5 sm:mb-2">
