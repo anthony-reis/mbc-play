@@ -12,6 +12,12 @@ import {
 import { MediaHero } from "@/components/shared/media/media-hero";
 import { MediaInfo } from "@/components/shared/media/media-info";
 import { MediaCreditsSection } from "@/components/shared/media/media-credits";
+import {
+  MediaCreditsSkeleton,
+  MediaHeroSkeleton,
+  MediaInfoSkeleton,
+} from "@/components/shared/media/media-skeleton";
+import { ErrorState } from "@/components/shared/error-state";
 
 interface ShowPageProps {
   params: Promise<{ id: string }>;
@@ -42,19 +48,17 @@ export default function ShowPage({ params }: ShowPageProps) {
 
   if (loadingShow) {
     return (
-      <div className="min-h-screen bg-dark flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4 text-white">
-          <Loader2 className="w-12 h-12 animate-spin" />
-          <span className="text-xl">Carregando série...</span>
-        </div>
+      <div className="min-h-screen bg-dark text-white pb-20">
+        <MediaHeroSkeleton />
+        <MediaInfoSkeleton />
+        <MediaCreditsSkeleton />
       </div>
     );
   }
 
   if (!show) {
-    notFound();
+    return <ErrorState message="Nenhum conteúdo disponível no momento." />;
   }
-
   const releaseYear = new Date(show.first_air_date).getFullYear();
   const seasons = show.number_of_seasons;
   const duration = `${seasons} ${seasons === 1 ? "temporada" : "temporadas"}`;

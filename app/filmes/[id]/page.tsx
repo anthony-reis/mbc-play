@@ -12,6 +12,11 @@ import {
 import { MediaInfo } from "@/components/shared/media/media-info";
 import { MediaCreditsSection } from "@/components/shared/media/media-credits";
 import { MediaHero } from "@/components/shared/media/media-hero";
+import {
+  MediaCreditsSkeleton,
+  MediaHeroSkeleton,
+  MediaInfoSkeleton,
+} from "@/components/shared/media/media-skeleton";
 
 interface MoviePageProps {
   params: Promise<{ id: string }>;
@@ -42,11 +47,10 @@ export default function MoviePage({ params }: MoviePageProps) {
 
   if (loadingMovie) {
     return (
-      <div className="min-h-screen bg-dark flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4 text-white">
-          <Loader2 className="w-12 h-12 animate-spin" />
-          <span className="text-xl">Carregando filme...</span>
-        </div>
+      <div className="min-h-screen bg-dark text-white pb-20">
+        <MediaHeroSkeleton />
+        <MediaInfoSkeleton />
+        <MediaCreditsSkeleton />
       </div>
     );
   }
