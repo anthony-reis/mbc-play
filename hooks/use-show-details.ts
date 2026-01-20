@@ -19,7 +19,16 @@ const showDetailsService = {
     tmdbFetch(`/tv/${showId}/credits?language=pt-BR`),
 
   getVideos: (showId: string): Promise<TMDBResponse<TMDBVideo>> =>
-    tmdbFetch(`/tv/${showId}/videos?language=pt-BR`),
+    tmdbFetch<TMDBResponse<TMDBVideo>>(
+      `/tv/${showId}/videos?language=pt-BR`,
+    ).then((response) => {
+      if (response.results && response.results.length > 0) {
+        return response;
+      }
+      return tmdbFetch<TMDBResponse<TMDBVideo>>(
+        `/tv/${showId}/videos?language=en-US`,
+      );
+    }),
 };
 
 export function useShowDetails(showId: string) {

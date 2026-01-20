@@ -28,7 +28,17 @@ export default function ShowPage({ params }: ShowPageProps) {
     videos?.results.find(
       (video) =>
         video.type === "Trailer" && video.site === "YouTube" && video.official,
-    ) || videos?.results.find((video) => video.type === "Trailer");
+    ) ||
+    videos?.results.find(
+      (video) => video.type === "Trailer" && video.site === "YouTube",
+    ) ||
+    videos?.results.find(
+      (video) =>
+        video.type === "Teaser" && video.site === "YouTube" && video.official,
+    ) ||
+    videos?.results.find(
+      (video) => video.type === "Teaser" && video.site === "YouTube",
+    );
 
   if (loadingShow) {
     return (
