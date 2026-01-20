@@ -45,6 +45,7 @@ export function MediaHero({ title, backdropPath, trailerKey }: MediaHeroProps) {
 
               <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-r from-dark via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-l from-dark via-transparent to-transparent" />
             </div>
           )}
 

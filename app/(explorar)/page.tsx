@@ -41,24 +41,20 @@ export default function ExplorePage() {
     isSearching,
   } = useSearch(query);
 
-  // Estado de loading da busca
   if (searchLoading && isSearching) {
     return <SearchLoadingState query={query} />;
   }
 
-  // Resultados da busca
   if (isSearching) {
     return (
       <SearchResults query={query} movies={searchMovies} shows={searchShows} />
     );
   }
 
-  // Estado de loading inicial
   if (loadingTrending) {
     return <PageSkeleton withHero sections={5} />;
   }
 
-  // Estado de erro
   if (trendingError) {
     return (
       <ErrorState
