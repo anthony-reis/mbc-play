@@ -1,34 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h1>🎬 MBCPLAY</h1>
+  <p><strong>Explore os melhores filmes e séries</strong></p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/Next.js-16.1.3-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+    <img src="https://img.shields.io/badge/React-19.2.3-61dafb?style=for-the-badge&logo=react" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-5.0-3178c6?style=for-the-badge&logo=typescript" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Tailwind-4.0-06b6d4?style=for-the-badge&logo=tailwindcss" alt="Tailwind" />
+  </p>
+</div>
 
-## Getting Started
+---
 
-First, run the development server:
+## 📖 Sobre
+
+Plataforma moderna para descoberta de filmes e séries, construída com Next.js 16 e integração com a API do TMDB.
+
+### ✨ Features
+
+- 🎯 Interface responsiva e intuitiva
+- 🔍 Busca e filtros por gênero
+- 📊 Detalhes completos com elenco e trailers
+- ⚡ Cache inteligente com TanStack Query
+- 🎬 Player de trailers integrado
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js 16** - App Router + Server Components
+- **React 19** - Biblioteca UI
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS 4** - Estilização
+- **shadcn/ui** - Componentes reutilizáveis
+- **TanStack Query** - Cache de dados
+- **Zustand** - Estado global
+- **Embla Carousel** - Carrosséis
+
+---
+
+## 🚀 Getting Started
+
+### Pré-requisitos
+
+- Node.js 18+
+- pnpm (ou npm/yarn)
+- [TMDB API Key](https://www.themoviedb.org/settings/api)
+
+### Instalação
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clone o repositório
+git clone https://github.com/anthony-reis/mbc-play.git
+cd mbc-play
+
+# Instale as dependências
+pnpm install
+
+# Configure o .env.local
+NEXT_PUBLIC_TMDB_API_KEY=sua_chave_api
+
+# Execute
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-## Learn More
+## 📂 Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+```text
+mbc-play/
+├── app/                    # Rotas (App Router)
+│   ├── (explorar)/        # Homepage
+│   ├── filmes/
+│   ├── series/
+│   └── genre/
+├── components/
+│   ├── ui/                # shadcn/ui components
+│   ├── layout/            # Header, Sidebar
+│   └── shared/            # Componentes reutilizáveis
+│       └── media/         # Cards, Hero, Info
+├── services/      # Movie, Show, Genre
+├── hooks/         # Custom hooks
+├── lib/
+│   ├── tmdb/              # API Integration
+│   │   └── queries/
+│   └── stores/            # Zustand
+├── types/                 # TypeScript definitions
+└── providers/             # React Context
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📜 Scripts
 
-## Deploy on Vercel
+```bash
+pnpm dev       # Desenvolvimento
+pnpm build     # Build de produção
+pnpm start     # Servidor de produção
+pnpm lint      # Linting
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔌 API
+
+| Serviço        | Descrição                            |
+| -------------- | ------------------------------------ |
+| movie-service  | Filmes populares, upcoming, trending |
+| show-service   | Séries de TV                         |
+| genre-service  | Gêneros e filtros                    |
+| search-service | Busca de conteúdo                    |
+
+---
+
+## 📄 Licença
+
+MIT License - veja LICENSE
+
+---
+
+## 👨‍💻 Autor
+
+**Anthony Reis**
+
+GitHub: [@anthony-reis](https://github.com/anthony-reis)
+
+---
