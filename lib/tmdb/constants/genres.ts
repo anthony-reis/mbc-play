@@ -79,7 +79,7 @@ export const CATEGORIES = [
   "Adventure",
   "Animation",
   "Crime",
-  "Cartoon",
+  "Western",
   "War",
   "Sport",
   "Romance",
